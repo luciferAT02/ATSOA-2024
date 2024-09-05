@@ -1,0 +1,47 @@
+# Define variables.
+
+
+# observatory = "IAO"
+#this is for HCT
+
+long = 281:02.15
+
+lat = 32:46.77
+
+ut = 13:42:30.828
+#ut = sexstr ((@'tm_start'+0.1) / 3600.)
+
+# obd = sexstr(@'date-obs')a
+
+# This is for 2k2nov15 (yy:mm:dd)
+
+ep = epoch ("2023-02-01",ut) #change the date-obs evrytime
+
+jd = julday ("2023-02-01",ut)
+
+st = mst ("2023-02-01",ut, long)
+
+rap = ra_precess (ra, dec, ep, 2000)
+
+dap = dec_precess (ra, dec, ep, 2000)
+
+HA = rap - st
+
+airmass = airmass (rap, dap, st, lat)
+
+# print(obd)
+
+print(ut)
+
+print(ep)
+
+print(jd)
+
+print(st)
+
+print(airmass)
+
+# airmass = eairmass (ra, dec, mst, itime, obsdb (observat, "latitude"))
+
+
+
